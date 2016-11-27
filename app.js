@@ -1,12 +1,12 @@
 function initMap() {
-  var uluru = {lat: -25.363, lng: 131.044};
+  var metrotown = {lat: 49.227626, lng: -123.007576};
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru,
+    zoom: 15,
+    center: metrotown,
     disableDefaultUI: true
   });
   var marker = new google.maps.Marker({
-    position: uluru,
+    position: metrotown,
     map: map
   });
 }
