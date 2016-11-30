@@ -41,9 +41,6 @@ var ViewModel = function() {
             markers.push(marker);
         }
 
-        document.getElementById('show-listings').addEventListener('click', ShowListings);
-        document.getElementById('hide-listings').addEventListener('click', HideListings);
-
         function ShowListings() {
             var bounds = new google.maps.LatLngBounds();
 
