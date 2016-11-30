@@ -71,3 +71,9 @@ function initMap() {
         }
     }
 }
+
+function googleError() {
+    document.body.innerHTML = '';
+    document.body.textContent = 'The Google API server is not responding.\
+                                        Please check your network connection.';
+}
