@@ -1,4 +1,5 @@
 var ViewModel = function() {
+    this.searchText = ko.observable('');
     var markers = [];
     var infoWindows = [];
 

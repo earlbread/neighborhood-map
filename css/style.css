@@ -4,6 +4,16 @@ html, body {
     padding: 0;
 }
 
+nav {
+    width: 90%;
+    left:0;
+    right:0;
+    margin: 10px auto;
+
+    position: absolute;
+    z-index: 10;
+}
+
 #map {
     height: 100%;
 }
