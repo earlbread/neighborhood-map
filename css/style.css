@@ -17,3 +17,14 @@ nav {
 #map {
     height: 100%;
 }
+
+.search-results {
+    background: white;
+}
+
+.search-results a {
+    margin-left: 40px;
+    display: block;
+    color: black;
+    font-size: 1.2em;
+}
