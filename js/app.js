@@ -1,3 +1,5 @@
+'use strict'
+
 var locations = [
     {
         title: 'Metropolis at Metrotown',
@@ -53,6 +55,7 @@ function initMapInfo(map, markers, largeInfoWindow) {
 }
 
 var ViewModel = function(map, markers, infoWindow) {
+    'use strict'
     var self = this;
 
     self.searchText = ko.observable('');
