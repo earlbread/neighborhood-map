@@ -21,6 +21,7 @@ nav {
 .search-results {
     background: white;
     max-height: 168px;
+    overflow: scroll;
 }
 
 .search-results a {
