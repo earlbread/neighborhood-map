@@ -62,7 +62,6 @@ var ViewModel = function(map, markers, infoWindow) {
     self.shouldShowLocations = ko.observable(false);
 
     self.toggleShowLocations = function() {
-        console.log(self.shouldShowLocations());
         self.shouldShowLocations(!self.shouldShowLocations());
     }
 
