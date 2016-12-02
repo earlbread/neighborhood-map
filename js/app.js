@@ -59,6 +59,12 @@ var ViewModel = function(map, markers, infoWindow) {
     var self = this;
 
     self.searchText = ko.observable('');
+    self.shouldShowLocations = ko.observable(false);
+
+    self.toggleShowLocations = function() {
+        console.log(self.shouldShowLocations());
+        self.shouldShowLocations(!self.shouldShowLocations());
+    }
 
     self.searchedLocations = ko.computed(function() {
         for (var i = 0; i < markers.length; i++) {

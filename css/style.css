@@ -20,6 +20,7 @@ nav {
 
 .search-results {
     background: white;
+    max-height: 168px;
 }
 
 .search-results a {

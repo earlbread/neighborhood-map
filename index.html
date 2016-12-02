@@ -28,10 +28,10 @@
         <div class="nav-wrapper">
           <div class="input-field">
             <input id="search" type="search" autocomplete="off" data-bind="textInput: searchText">
-            <label for="search"><i class="material-icons black-text">search</i></label>
+            <label for="search"><i class="material-icons black-text" data-bind="click: toggleShowLocations">list</i></label>
             <i class="material-icons" data-bind="click: removeSearchText">close</i>
           </div>
-          <div class="search-results" data-bind="visible: searchText, foreach: searchedLocations">
+          <div class="search-results" data-bind="visible: (shouldShowLocations || searchText), foreach: searchedLocations">
             <a href="#" data-bind="text: title, click: $parent.populateInfoWindow"></a>
           </div>
         </div>
