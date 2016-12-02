@@ -2,6 +2,21 @@
 
 var locations = [
     {
+        title: 'Chipotle Mexican Grill',
+        position: { lat: 49.2261894, lng: -123.0027339 },
+        description: 'Fast-food chain offering Mexican fare, including design-your-own burritos, tacos & bowls.'
+    },
+    {
+        title: 'A&W',
+        position: { lat: 49.225832, lng: -123.0024901 },
+        description: 'Canadian fast food restaurant chain.'
+    },
+    {
+        title: 'Sushi Garden',
+        position: { lat: 49.2284805, lng: -123.0006349 },
+        description: 'Modest but contemporary outpost with a classic Japanese menu of sushi, tempura, udon & rice bowls.'
+    },
+    {
         title: 'Metropolis at Metrotown',
         position: {lat: 49.226771, lng: -123.001318},
         description: 'The biggest mall in burnaby'
