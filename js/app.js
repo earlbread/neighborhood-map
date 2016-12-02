@@ -40,6 +40,8 @@ function initMap(center) {
 
 function populateInfoWindow(map, marker, infoWindow) {
     if(infoWindow.marker != marker) {
+        marker.setAnimation(google.maps.Animation.DROP);
+
         infoWindow.marker = marker;
         infoWindow.setContent('<div>' + marker.title + '</div>');
         infoWindow.open(map, marker);
@@ -81,6 +83,7 @@ var ViewModel = function(map, markers, infoWindow) {
     }
 
     self.searchedLocations = ko.computed(function() {
+        self.shouldShowLocations(false);
         for (var i = 0; i < markers.length; i++) {
             var marker = markers[i];
 
@@ -98,6 +101,7 @@ var ViewModel = function(map, markers, infoWindow) {
     });
 
     self.removeSearchText = function() {
+        self.shouldShowLocations(false);
         self.searchText('');
     };
 
