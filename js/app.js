@@ -76,12 +76,12 @@ var ViewModel = function(map, markers, infoWindow) {
 
     self.removeSearchText = function() {
         self.searchText('');
-    }
+    };
 
     self.populateInfoWindow = function(marker) {
         self.searchText('');
         marker.infoWindow(map, marker, infoWindow);
-    }
+    };
 };
 
 function initApp() {
