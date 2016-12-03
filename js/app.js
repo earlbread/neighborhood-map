@@ -4,27 +4,32 @@ var locations = [
     {
         title: 'Chipotle Mexican Grill',
         position: { lat: 49.2261894, lng: -123.0027339 },
-        description: 'Fast-food chain offering Mexican fare, including design-your-own burritos, tacos & bowls.'
+        description: 'Fast-food chain offering Mexican fare, including design-your-own burritos, tacos & bowls.',
+        yelpId: 'chipotle-mexican-grill-burnaby'
     },
     {
         title: 'A&W',
         position: { lat: 49.225832, lng: -123.0024901 },
-        description: 'Canadian fast food restaurant chain.'
+        description: 'Canadian fast food restaurant chain.',
+        yelpId: 'a-and-w-burnaby-3'
     },
     {
         title: 'Sushi Garden',
         position: { lat: 49.2284805, lng: -123.0006349 },
-        description: 'Modest but contemporary outpost with a classic Japanese menu of sushi, tempura, udon & rice bowls.'
+        description: 'Modest but contemporary outpost with a classic Japanese menu of sushi, tempura, udon & rice bowls.',
+        yelpId: 'sushi-garden-japanese-restaurant-burnaby'
     },
     {
         title: 'Metropolis at Metrotown',
         position: {lat: 49.226771, lng: -123.001318},
-        description: 'The biggest mall in burnaby'
+        description: 'The biggest mall in burnaby',
+        yelpId: 'metropolis-at-metrotown-burnaby'
     },
     {
         title: 'Metrotown Public Library',
         position: {lat: 49.228365, lng: -123.006709},
-        description: 'Metrotown Public Library'
+        description: 'Metrotown Public Library',
+        yelpId: 'burnaby-public-library-burnaby-4'
     }
 ];
 
@@ -40,10 +45,32 @@ function initMap(center) {
 
 function populateInfoWindow(map, marker, infoWindow) {
     if(infoWindow.marker != marker) {
+        var content = '';
+
+        if (marker.content) {
+            content = marker.content;
+        } else if (marker.yelpInfo) {
+            var yelpInfo = marker.yelpInfo;
+            var source = document.getElementById('iw-template').innerHTML;
+            var template = Handlebars.compile(source);
+            var context = {
+                title: marker.title,
+                url: yelpInfo.url,
+                rating_img_url: yelpInfo.rating_img_url,
+                image_url: yelpInfo.image_url,
+                description: marker.description
+            };
+
+            content = template(context);
+            marker.content = content;
+        } else {
+            content = '<div>' + marker.title + '</div>';
+        }
+
         marker.setAnimation(google.maps.Animation.DROP);
 
         infoWindow.marker = marker;
-        infoWindow.setContent('<div>' + marker.title + '</div>');
+        infoWindow.setContent(content);
         infoWindow.open(map, marker);
 
         infoWindow.addListener('closeclick', function() {
@@ -53,6 +80,8 @@ function populateInfoWindow(map, marker, infoWindow) {
 };
 
 function initMapInfo(map, markers, largeInfoWindow) {
+    var bounds = new google.maps.LatLngBounds();
+
     for (var i = 0; i < locations.length; i++) {
         var loc = locations[i];
         var marker = new google.maps.Marker({
@@ -60,15 +89,35 @@ function initMapInfo(map, markers, largeInfoWindow) {
             title: loc.title,
             id: i
         });
+        getYelpInfo(marker, loc.yelpId);
 
         marker.addListener('click', function() {
             populateInfoWindow(map, this, largeInfoWindow);
         });
 
+        marker.description = loc.description;
         marker.infoWindow = populateInfoWindow;
 
         markers.push(marker);
+        bounds.extend(marker.position);
     }
+    map.fitBounds(bounds);
+}
+
+function getYelpInfo(marker, yelp_id) {
+    /* Use proxy server to protect API Key */
+    var YELP_PROXY_URL = 'https://udacity-webdevelopment-142016.appspot.com/get_yelp_info/'
+    var yelp_url = YELP_PROXY_URL + yelp_id;
+
+    $.ajax({
+        url: yelp_url,
+        success: function(results) {
+            marker.yelpInfo = results;
+        },
+        fail: function() {
+            marker.yelpInfo = null;
+        }
+    });
 }
 
 var ViewModel = function(map, markers, infoWindow) {
@@ -125,5 +174,5 @@ function initApp() {
 function googleError() {
     document.body.innerHTML = '';
     document.body.textContent = 'The Google API server is not responding.\
-                                        Please check your network connection.';
+    Please check your network connection.';
 }

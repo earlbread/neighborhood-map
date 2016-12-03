@@ -30,3 +30,13 @@ nav {
     color: black;
     font-size: 1.2em;
 }
+
+.iw-entry {
+    display: flex;
+    max-width: 300px;
+}
+
+.location-image img {
+    border-radius: 7px;
+    margin-left: 20px;
+}

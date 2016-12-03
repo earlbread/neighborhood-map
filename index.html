@@ -40,15 +40,37 @@
 
     <div id="map"></div>
 
+
+    <script id="iw-template" type="text/x-handlebars-template">
+      <div class="iw-entry">
+        <div class="location-info">
+          <div class="location-title">
+            <h6><a href="{{ url }}">{{ title }}</a></h6>
+          </div>
+          <div class="location-rating">
+            <img src="{{ rating_img_url }}" alt="rating image">
+          </div>
+          <div class="location-description">
+            {{ description }}
+          </div>
+        </div>
+        <div class="location-image">
+          <img src="{{ image_url }}" alt="{{ title }} image">
+        </div>
+      </div>
+    </script>
+
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+
+    <script src="js/handlebars.min.js"></script>
     <script src="js/knockout-3.4.1.js"></script>
     <script src="js/app.js"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYBkyhmC6Y7Gwi6yMx1b5GeruqChj3AZE&callback=initApp" onerror="googleError();">
     </script>
 
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/materialize.min.js"></script>
 
   </body>
 </html>
