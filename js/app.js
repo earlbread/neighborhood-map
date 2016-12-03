@@ -155,7 +155,7 @@ var ViewModel = function(map, markers, infoWindow) {
     };
 
     self.populateInfoWindow = function(marker) {
-        self.searchText('');
+        self.removeSearchText('');
         marker.infoWindow(map, marker, infoWindow);
     };
 };
