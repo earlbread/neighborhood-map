@@ -132,7 +132,6 @@ var ViewModel = function(map, markers, infoWindow) {
     }
 
     self.searchedLocations = ko.computed(function() {
-        self.shouldShowLocations(false);
         for (var i = 0; i < markers.length; i++) {
             var marker = markers[i];
 
