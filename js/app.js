@@ -4,19 +4,19 @@
 var locations = [
     {
         title: 'Chipotle Mexican Grill',
-        position: { lat: 49.2261894, lng: -123.0027339 },
+        position: { lat: 49.2260222, lng: -123.002301 },
         description: 'Fast-food chain offering Mexican fare, including design-your-own burritos, tacos & bowls.',
         yelpId: 'chipotle-mexican-grill-burnaby'
     },
     {
         title: 'A&W',
-        position: { lat: 49.225832, lng: -123.0024901 },
+        position: { lat: 49.2260751, lng: -123.0020549 },
         description: 'Canadian fast food restaurant chain.',
         yelpId: 'a-and-w-burnaby-3'
     },
     {
         title: 'Sushi Garden',
-        position: { lat: 49.2284805, lng: -123.0006349 },
+        position: { lat: 49.2292013, lng: -123.0009336 },
         description: 'Modest but contemporary outpost with a classic Japanese menu of sushi, tempura, udon & rice bowls.',
         yelpId: 'sushi-garden-japanese-restaurant-burnaby'
     },
@@ -28,7 +28,7 @@ var locations = [
     },
     {
         title: 'Metrotown Public Library',
-        position: {lat: 49.228365, lng: -123.006709},
+        position: {lat: 49.2282259, lng: -123.0064567},
         description: 'Metrotown Public Library',
         yelpId: 'burnaby-public-library-burnaby-4'
     }
