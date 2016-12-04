@@ -1,5 +1,6 @@
 'use strict';
 
+/* Locations model */
 var locations = [
     {
         title: 'Chipotle Mexican Grill',
@@ -33,6 +34,7 @@ var locations = [
     }
 ];
 
+/* Create a map */
 function initMap(center) {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
@@ -43,6 +45,7 @@ function initMap(center) {
     return map;
 }
 
+/* Generate info window content and populate it */
 function populateInfoWindow(map, marker, infoWindow) {
     if(infoWindow.marker != marker) {
         var content = '';
@@ -79,6 +82,7 @@ function populateInfoWindow(map, marker, infoWindow) {
     }
 }
 
+/* Initialize markers and info window */
 function initMapInfo(map, markers, largeInfoWindow) {
     var bounds = new google.maps.LatLngBounds();
 
@@ -96,7 +100,7 @@ function initMapInfo(map, markers, largeInfoWindow) {
         });
 
         marker.description = loc.description;
-        marker.infoWindow = populateInfoWindow;
+        marker.populateInfoWindow = populateInfoWindow;
 
         markers.push(marker);
         bounds.extend(marker.position);
@@ -104,6 +108,7 @@ function initMapInfo(map, markers, largeInfoWindow) {
     map.fitBounds(bounds);
 }
 
+/* Get Yelp information for info window from proxy server */
 function getYelpInfo(marker, yelp_id) {
     /* Use proxy server to protect API Key */
     var YELP_PROXY_URL = 'https://udacity-webdevelopment-142016.appspot.com/get_yelp_info/';
@@ -120,6 +125,7 @@ function getYelpInfo(marker, yelp_id) {
     });
 }
 
+/* Knockout View Model */
 var ViewModel = function(map, markers, infoWindow) {
     var self = this;
 
@@ -154,10 +160,11 @@ var ViewModel = function(map, markers, infoWindow) {
 
     self.populateInfoWindow = function(marker) {
         self.removeSearchText('');
-        marker.infoWindow(map, marker, infoWindow);
+        marker.populateInfoWindow(map, marker, infoWindow);
     };
 };
 
+/* Callback of Google map API */
 function initApp() {
     var map  = null;
     var markers = [];
@@ -169,6 +176,8 @@ function initApp() {
     ko.applyBindings(new ViewModel(map, markers, largeInfoWindow));
 }
 
+
+/* Fallback when failed Google map loading */
 function googleError() {
     document.body.innerHTML = '';
     document.body.textContent = 'The Google API server is not responding.\
