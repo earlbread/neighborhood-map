@@ -99,6 +99,7 @@ function initMapInfo(map, markers, largeInfoWindow) {
             populateInfoWindow(map, this, largeInfoWindow);
         });
 
+        marker.setMap(map);
         marker.description = loc.description;
         marker.populateInfoWindow = populateInfoWindow;
 
@@ -142,9 +143,9 @@ var ViewModel = function(map, markers, infoWindow) {
 
 
             if (marker.title.toLowerCase().includes(self.searchText().toLowerCase())) {
-                marker.setMap(map);
+                marker.setVisible(true);
             } else {
-                marker.setMap(null);
+                marker.setVisible(false);
             }
         }
 
