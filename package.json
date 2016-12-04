@@ -1,0 +1,24 @@
+{
+  "name": "neighborhood-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/earlbread/neighborhood-map.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/earlbread/neighborhood-map/issues"
+  },
+  "homepage": "https://github.com/earlbread/neighborhood-map#readme",
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1"
+  }
+}
