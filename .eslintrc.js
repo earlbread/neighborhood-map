@@ -19,6 +19,18 @@ module.exports = {
         "semi": [
             "error",
             "always"
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "local"
+            }
         ]
+    },
+    "globals": {
+        "google": true,
+        "Handlebars": true,
+        "ko": true,
+        "$": true
     }
 };

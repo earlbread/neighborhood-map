@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var locations = [
     {
@@ -77,7 +77,7 @@ function populateInfoWindow(map, marker, infoWindow) {
             infoWindow.marker = null;
         });
     }
-};
+}
 
 function initMapInfo(map, markers, largeInfoWindow) {
     var bounds = new google.maps.LatLngBounds();
@@ -106,7 +106,7 @@ function initMapInfo(map, markers, largeInfoWindow) {
 
 function getYelpInfo(marker, yelp_id) {
     /* Use proxy server to protect API Key */
-    var YELP_PROXY_URL = 'https://udacity-webdevelopment-142016.appspot.com/get_yelp_info/'
+    var YELP_PROXY_URL = 'https://udacity-webdevelopment-142016.appspot.com/get_yelp_info/';
     var yelp_url = YELP_PROXY_URL + yelp_id;
 
     $.ajax({
@@ -121,7 +121,6 @@ function getYelpInfo(marker, yelp_id) {
 }
 
 var ViewModel = function(map, markers, infoWindow) {
-    'use strict'
     var self = this;
 
     self.searchText = ko.observable('');
@@ -129,7 +128,7 @@ var ViewModel = function(map, markers, infoWindow) {
 
     self.toggleShowLocations = function() {
         self.shouldShowLocations(!self.shouldShowLocations());
-    }
+    };
 
     self.searchedLocations = ko.computed(function() {
         for (var i = 0; i < markers.length; i++) {
