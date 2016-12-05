@@ -165,7 +165,7 @@ var ViewModel = function(map, markers, infoWindow) {
         }
 
         return markers.filter(function(marker) {
-            return marker.map !== null;
+            return marker.visible;
         });
     });
 
