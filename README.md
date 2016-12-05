@@ -11,7 +11,7 @@ You can also start with local server in project directory like below.
 
     $ python -m SimpleHTTPServer 8000
 
-After that, you can connect to ``http://localhost:8080/index.html``
+After that, you can connect to ``http://localhost:8000/index.html``
 
 But Yelp API is only worked in [live site][live], because I used backend server to protect API keys.
 
