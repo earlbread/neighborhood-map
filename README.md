@@ -2,11 +2,17 @@
 
 This is the fifth project of Full Stack Web Develper Nanodegree by Udacity.
 
-You can check live version of this project [here](https://earlbread.github.io/neighborhood-map/).
+You can check live version of this project [here][live].
 
-## Notes
+## Getting started
 
-I used backend server to protect API keys. Please refer [this][1].
+To get started this project, you just need to clone it and open index.html in your browser.
+
+But Yelp API is only worked in [live site][live], because I used backend server to protect API keys.
+
+If you want to use Yelp API as I used, please refer [this][1].
+
+[live]: https://earlbread.github.io/neighborhood-map/
 
 [1]: https://github.com/earlbread/multipurpose-backend
 
