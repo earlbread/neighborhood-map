@@ -109,7 +109,13 @@ function initMapInfo(map, markers, largeInfoWindow) {
         markers.push(marker);
         bounds.extend(marker.position);
     }
+
     map.fitBounds(bounds);
+
+    /* Fit boundaries responsively */
+    window.onresize = function () {
+        map.fitBounds(bounds);
+    }
 }
 
 /* Get Yelp information for info window from proxy server */
