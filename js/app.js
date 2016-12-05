@@ -1,5 +1,6 @@
 'use strict';
 
+/* Set error flag to display alert only once */
 var yelpError = false;
 
 /* Locations model */
