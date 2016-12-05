@@ -7,6 +7,11 @@ You can check live version of this project [here][live].
 ## Getting started
 
 To get started this project, you just need to clone it and open index.html in your browser.
+You can also start with local server in project directory like below.
+
+    $ python -m SimpleHTTPServer 8000
+
+After that, you can connect to ``http://localhost:8080/index.html``
 
 But Yelp API is only worked in [live site][live], because I used backend server to protect API keys.
 
