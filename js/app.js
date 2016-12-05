@@ -50,6 +50,8 @@ function initMap(center) {
 
 /* Generate info window content and populate it */
 function populateInfoWindow(map, marker, infoWindow) {
+    map.panTo(marker.getPosition());
+
     if(infoWindow.marker != marker) {
         var content = '';
 
