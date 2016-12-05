@@ -1,5 +1,7 @@
 'use strict';
 
+var yelpError = false;
+
 /* Locations model */
 var locations = [
     {
@@ -120,7 +122,11 @@ function getYelpInfo(marker, yelp_id) {
         success: function(results) {
             marker.yelpInfo = results;
         },
-        fail: function() {
+        error: function() {
+            if (!yelpError) {
+                alert('Yelp API is not loaded. Yelp information may not be displayed properly.');
+                yelpError = true;
+            }
             marker.yelpInfo = null;
         }
     });
